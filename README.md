@@ -12,6 +12,8 @@ cargo add dod-table
 ## Usage
 
 ```rust
+use dod_table::*;
+
 // Make sure that the type used in the table implements the Default trait.
 #[derive(Default)]
 struct Entity {
