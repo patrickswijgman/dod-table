@@ -45,7 +45,7 @@ fn main() {
     let data = Data::new();
 
     // Initialize the player data.
-    let player = data.entities.get_mut(player_id);
+    let player = data.entities.get_mut(data.player_id);
     player.x = 100;
     player.y = 100;
 
