@@ -1,5 +1,8 @@
 # Table
 
+A generic struct for Rust to create a contiguous memory block.
+Inspired by the [Data Oriented Design book by Richard Fabian](https://www.dataorienteddesign.com/dodbook.pdf).
+
 ## Installation
 
 ```shell
