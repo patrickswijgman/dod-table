@@ -1,0 +1,9 @@
+[package]
+name = "dod-table"
+version = "0.1.0"
+edition = "2021"
+authors = ["Patrick Swijgman"]
+description = "A contiguous memory block (AKA a table) for Data Oriented Design."
+repository = ""
+
+[dependencies]
