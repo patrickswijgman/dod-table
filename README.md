@@ -19,6 +19,8 @@ use dod_table::*;
 struct Entity {
     x: f32,
     y: f32,
+    some_state: String,
+    some_flag: bool,
 }
 
 // The global data for our game.
@@ -47,11 +49,14 @@ fn main() {
     let data = Data::new();
 
     // Initialize the player data.
-    let player = data.entities.get_mut(data.player_id);
-    player.x = 100;
-    player.y = 100;
+    data.entities.set(data.player_id, Entity {
+        x: 100.,
+        y: 100.,
+        ..Default::default(),
+    });
 
     loop {
+        let player = data.entities.get_mut(data.player_id);
         // The game logic...
     }
 }

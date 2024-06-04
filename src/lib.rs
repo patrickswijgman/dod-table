@@ -34,6 +34,11 @@ where
         &mut self.elements[i]
     }
 
+    /// Set an element at the given index.
+    pub fn set(&mut self, i: usize, e: T) {
+        self.elements[i] = e;
+    }
+
     /// Find the first element that satisfies the given predicate.
     pub fn find<P>(&self, predicate: P) -> Option<&T>
     where
