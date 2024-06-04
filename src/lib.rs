@@ -40,11 +40,14 @@ where
     }
 
     /// Find the first element that satisfies the given predicate.
-    pub fn find<P>(&self, predicate: P) -> Option<&T>
+    pub fn find<P>(&self, predicate: P) -> Option<(usize, &T)>
     where
         P: Fn(&T) -> bool,
     {
-        self.elements.iter().find(|e| predicate(e))
+        self.elements
+            .iter()
+            .enumerate()
+            .find(|(_idx, e)| predicate(e))
     }
 
     /// Reset the element at the given index back to its default values (AKA zeroing).
