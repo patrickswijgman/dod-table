@@ -39,13 +39,24 @@ where
         self.elements[i] = e;
     }
 
-    /// Find the first element that satisfies the given predicate.
+    /// Get a reference to the first element that satisfies the given predicate.
     pub fn find<P>(&self, predicate: P) -> Option<(usize, &T)>
     where
         P: Fn(&T) -> bool,
     {
         self.elements
             .iter()
+            .enumerate()
+            .find(|(_idx, e)| predicate(e))
+    }
+
+    /// Get a mutable reference to the first element that satisfies the given predicate.
+    pub fn find_mut<P>(&mut self, predicate: P) -> Option<(usize, &mut T)>
+    where
+        P: Fn(&T) -> bool,
+    {
+        self.elements
+            .iter_mut()
             .enumerate()
             .find(|(_idx, e)| predicate(e))
     }
