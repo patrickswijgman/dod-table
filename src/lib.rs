@@ -41,12 +41,12 @@ where
     }
 
     /// Iterate over references of the elements.
-    pub fn iter<P>(&self) -> Iter<T> {
+    pub fn iter(&self) -> Iter<T> {
         self.elements.iter()
     }
 
     /// Iterate over mutable references of the elements.
-    pub fn iter_mut<P>(&mut self) -> IterMut<T> {
+    pub fn iter_mut(&mut self) -> IterMut<T> {
         self.elements.iter_mut()
     }
 
