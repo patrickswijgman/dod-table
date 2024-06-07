@@ -1,4 +1,5 @@
 use core::array;
+use std::slice::{Iter, IterMut};
 
 /// A contiguous memory block.
 ///
@@ -39,26 +40,14 @@ where
         self.elements[i] = e;
     }
 
-    /// Get a reference to the first element that satisfies the given predicate.
-    pub fn find<P>(&self, predicate: P) -> Option<(usize, &T)>
-    where
-        P: Fn(&T) -> bool,
-    {
-        self.elements
-            .iter()
-            .enumerate()
-            .find(|(_idx, e)| predicate(e))
+    /// Iterate over references of the elements.
+    pub fn iter<P>(&self) -> Iter<T> {
+        self.elements.iter()
     }
 
-    /// Get a mutable reference to the first element that satisfies the given predicate.
-    pub fn find_mut<P>(&mut self, predicate: P) -> Option<(usize, &mut T)>
-    where
-        P: Fn(&T) -> bool,
-    {
-        self.elements
-            .iter_mut()
-            .enumerate()
-            .find(|(_idx, e)| predicate(e))
+    /// Iterate over mutable references of the elements.
+    pub fn iter_mut<P>(&mut self) -> IterMut<T> {
+        self.elements.iter_mut()
     }
 
     /// Reset the element at the given index back to its default values (AKA zeroing).
